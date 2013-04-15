@@ -42,8 +42,8 @@ cyclic Template hooking). Then you may wonder in which order the hooks
 are replaced.
 
 The order is as following:
-1. Convert content to text strings and replace text hooks.
-2. Replace object hooks with PHP objects.
+ 1. Convert content to text strings and replace text hooks.
+ 2. Replace object hooks with PHP objects.
 
 When the subtemplates are converted to strings their replacement
 procedure will be triggered and their content will be replaced first.
