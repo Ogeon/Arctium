@@ -3,7 +3,7 @@ Arctium
 
 A simple PHP model-view framework, based on templates, which allows
 you to freely write your website without any restrictions. The main
-purpouse of this framework is to separate code, desig and content
+purpouse of this framework is to separate code, design and content
 to avoid cluttering.
 
 #How it works
@@ -23,7 +23,7 @@ calling `Template->hookContent($hook, $content)` with the name of
 the hook and the desired content as parameters.
 
 ##Object hooks
-Syntax: `{{ObjectName; param1[, param2, ...]}}`
+Syntax: `{{ClassName;param1[,param2,...]}}`
 
 These are a little stranger than the text hooks. These are used to add
 semi dynamic content to the document. Object hooks will be replaced
