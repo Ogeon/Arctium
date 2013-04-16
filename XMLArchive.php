@@ -16,7 +16,7 @@ class XMLArchive {
 
 	public function fillTemplate(Template $template, $path = "") {
 		$position = $this->navigate($path);
-		foreach ($position as $key => $value) {
+		foreach ($position->children() as $key => $value) {
 			$template->hookContent($key, $this->innerXml($value->asXML()));
 		}
 	}
