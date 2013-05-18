@@ -1,7 +1,8 @@
 <?
 include_once "Arctium/Template.php";
+include_once "Arctium/Archive.php";
 
-class XMLArchive {
+class XMLArchive extends Archive {
 	private $XML;
 
 	public function __construct($xmlFile) {
@@ -22,14 +23,12 @@ class XMLArchive {
 	}
 
 	private function innerXml($xml_text) {
-		//strip the first element
-		//check if the strip tag is empty also
 		$xml_text = trim($xml_text);
 		$s1 = strpos($xml_text,">");
-		$s2 = trim(substr($xml_text,0,$s1)); //get the head with ">" and trim (note that string is indexed from 0)
-		if (strlen($s2) < 1 || $s2[strlen($s2)-1]=="/") //tag is empty
+		$s2 = trim(substr($xml_text,0,$s1));
+		if (strlen($s2) < 1 || $s2[strlen($s2)-1]=="/")
 			return "";
-		$s3 = strrpos($xml_text,"<"); //get last closing "<"
+		$s3 = strrpos($xml_text,"<");
 		return trim(substr($xml_text,$s1+1,$s3-$s1-1));
 	}
 
@@ -47,4 +46,3 @@ class XMLArchive {
 		return $position;
 	}
 }
-?>
