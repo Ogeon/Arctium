@@ -127,19 +127,8 @@ automatically and this happens after the text hooks are replaces. This
 makes it possible to add text hooks into the object hooks to create
 static programmable elements with dynamic content.
 
+These hooks will be replaces after the text hooks. This makes it possible
+to include text hooks in object hooks for more dynamic content.
+
 Object hooks will, for now only be replaced with content from the
 Arctium directory, but there are plans to extend this to any directory.
-
-##Order of replacement
-The fact that each hook can be replaced with any type of content that
-can be converted to a text string makes it possible to hook in an other
-Template object (Warning! I will not be responsible for the effects of
-cyclic Template hooking). Then you may wonder in which order the hooks
-are replaced.
-
-The order is as following:
- 1. Convert content to text strings and replace text hooks.
- 2. Replace object hooks with PHP objects.
-
-When the subtemplates are converted to strings their replacement
-procedure will be triggered and their content will be replaced first.
