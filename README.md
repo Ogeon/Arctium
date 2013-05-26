@@ -6,6 +6,10 @@ you to freely write your website without any restrictions. The main
 purpouse of this framework is to separate code, design and content
 to avoid cluttering.
 
+It comes with a template class, text archives, a helper class for
+parsing and creating nice URLs, a class representing HTML tags and
+classes for some common components like menus and forms.
+
 #Quick example
 _Note: The Arctium files assumes that they are placed in a directory called
 Arctium in the same directory as the executed PHP file. This will be
