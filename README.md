@@ -6,6 +6,98 @@ you to freely write your website without any restrictions. The main
 purpouse of this framework is to separate code, design and content
 to avoid cluttering.
 
+#Quick example
+_Note: The Arctium files assumes that they are placed in a directory called
+Arctium in the same directory as the executed PHP file. This will be
+made configurable in a later version._
+
+```
+Example file structure:
+
+/[...]/Arctium/[arctium files]
+/[...]/templates/main.html
+/[...]/graphics/
+/[...]/pages/[...]/gallery/
+/[...]/index.php
+/[...]/texts.xml
+/[...]/style.css
+/[...]/.htaccess
+```
+
+```HTML
+templates/main.html
+
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>[[title]]</title>
+		<!-- CSS links and stuff here -->
+	</head>
+	<body>
+		<p>[[useful text]]</p>
+		{{Gallery;pictures,pages/[[page]]/gallery}}
+	</body>
+</html>
+```
+
+```XML
+texts.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<texts>
+	<en>
+		<about>
+			This example shows how Arctium can be used.
+		</about>
+	</en>
+	<sv>
+		<about>
+			Det här exemplet visar hur Arctium kan användas.
+		</about>
+	</sv>
+</texts>
+```
+
+```
+.htaccess
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^show/(.*)$ /index.php?args=show/$1 [L]
+RewriteRule ^lang/(.*)$ /index.php?args=lang/$1 [L]
+```
+
+```PHP
+index.php
+
+<?
+
+include_once "Arctium/Template.php";
+include_once "Arctium/XMLArchive.php";
+include_once "Arctium/URL.php";
+
+$texts = new XMLArchive("texts.xml");
+$url = new URL($_GET["args"]);
+
+$lagn = $url->getParameter("lang");
+if($lang === null) {
+	$lagn = "en";
+}
+
+$page = new Template("templates/main.html");
+$page->hookContent("title", "Quick example");
+$page->hookContent("page", $url->getParameter("show"));
+$page->hookContent("useful text", $texts->get("$lang/about"));
+
+echo $page;
+
+?>
+```
+
 #How it works
 Arctium is based on templates with place holders called "hooks".
 Any content that can be converted to strings can be hooked into a
