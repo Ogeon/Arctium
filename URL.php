@@ -1,4 +1,4 @@
-<?
+<?php
 
 class URL {
 	private $parameters;

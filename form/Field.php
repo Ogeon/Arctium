@@ -1,4 +1,4 @@
-<?
+<?php
 include_once("Arctium/Template.php");
 
 class Field {

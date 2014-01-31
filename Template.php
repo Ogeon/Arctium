@@ -1,4 +1,4 @@
-<?
+<?php
 class Template {
 	private $template;
 	private $content;

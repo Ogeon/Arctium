@@ -78,7 +78,7 @@ RewriteRule ^lang/(.*)$ /index.php?args=lang/$1 [L]
 ```PHP
 index.php
 
-<?
+<?php
 
 include_once "Arctium/Template.php";
 include_once "Arctium/XMLArchive.php";

@@ -1,4 +1,4 @@
-<?
+<?php
 include_once("Arctium/HTMLElement.php");
 include_once("Arctium/Template.php");
 include_once("Arctium/form/Field.php");

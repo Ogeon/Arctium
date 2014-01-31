@@ -1,4 +1,4 @@
-<?
+<?php
 
 class HTMLElement {
 	private $tagname;
